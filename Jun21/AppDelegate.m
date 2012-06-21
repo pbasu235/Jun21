@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "View.h"
 
 @implementation AppDelegate
 
@@ -14,9 +15,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    UIScreen *screen =[UIScreen mainScreen];
+    view = [[View alloc] initWithFrame: screen.applicationFrame];
+    self.window = [[UIWindow alloc] initWithFrame: screen.bounds];
+    
     // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
+    //self.window.backgroundColor = [UIColor whiteColor];
+    [self.window addSubview: view];
     [self.window makeKeyAndVisible];
     return YES;
 }
